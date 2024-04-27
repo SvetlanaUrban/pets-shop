@@ -84,3 +84,26 @@ const items = [
     img: "./img/12.jpeg",
   },
 ];
+
+const itemsContainer = document.querySelector("#shop-items");
+const itemTemplate = document.querySelector("#item-template");
+
+function renderItems(items) {
+  items.forEach(item) {
+    itemsContainer.append(makeShopItemByTemplate(item))
+  }
+};
+
+renderItems(items);
+
+function makeShopItemByTemplate({title, description, tags, price, img}) {
+  const petShopCard = itemTemplate.content.cloneNode(true);
+
+  petShopCard.querySelector(`h1`).textContent = title;
+  petShopCard.querySelector(`p`).textContent = description;
+  petShopCard.querySelector(`.tags`).textContent = tags;
+  petShopCard.querySelector(`.price`).textContent = price;
+  petShopCard.querySelector(`img`).src = img;
+
+  return  petShopCard; 
+}

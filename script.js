@@ -89,10 +89,10 @@ const itemsContainer = document.querySelector("#shop-items");
 const itemTemplate = document.querySelector("#item-template");
 
 function renderItems(items) {
-  items.forEach(item) {
+  items.forEach((item) => {
     itemsContainer.append(makeShopItemByTemplate(item))
-  }
-};
+  });
+}
 
 renderItems(items);
 

@@ -98,10 +98,17 @@ renderItems(items);
 
 function makeShopItemByTemplate({title, description, tags, price, img}) {
   const petShopCard = itemTemplate.content.cloneNode(true);
+  
+  const tagsHolder = petShopCard.querySelector(".tags");
+  tags.forEach((tag) => {
+    const element = document.createElement("span");
+    element.textContent = tag;
+    element.classList.add("tag");
+    tagsHolder.append(element);
+    });
 
   petShopCard.querySelector(`h1`).textContent = title;
   petShopCard.querySelector(`p`).textContent = description;
-  petShopCard.querySelector(`.tags`).textContent = tags;
   petShopCard.querySelector(`.price`).textContent = price;
   petShopCard.querySelector(`img`).src = img;
 
